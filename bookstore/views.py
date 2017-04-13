@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 from django.views.generic import TemplateView, DetailView, ListView, CreateView
 
-from .models import Item
+from .models import Item, Category
 
 # Create your views here.
 from django.http import HttpResponse
@@ -16,6 +16,6 @@ class HomeView(TemplateView):
     template_name='home.html'
 
 class ItemCategoryView(CreateView):
-	model = Item
+	model = Category
 	template_name = 'item_category.html'
-	fields = ['category']
+	fields = ['name','description']

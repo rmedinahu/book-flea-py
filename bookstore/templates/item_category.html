@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content_row %}
+
+  <form action="" method="post">{% csrf_token %}
+      {{ form.as_table }}
+      <input type="submit" class="btn btn-success" value="Add it!" />
+  </form>
 <head>
 <style>
 .dropdown-content {
