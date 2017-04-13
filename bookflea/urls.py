@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from bookstore.views import HomeView
+from bookstore.views import HomeView, ItemDetail
 
 urlpatterns = [
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
+    url(r'^item/(?P<pk>\d+)/$', ItemDetail.as_view(), name='item_detail'),
 ]
