@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
-from django.views.generic import TemplateView, DetailView, ListView, CreateView
+from django.views.generic import TemplateView, DetailView, ListView, CreateView, UpdateView
 
 from .models import Item, Category
 

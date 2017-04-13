@@ -21,8 +21,8 @@ from bookstore.views import HomeView, UpdateBookView, ItemCreateView, ItemCatego
 urlpatterns = [
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
-    url(r'^category/add/$', ItemCategoryView.as_view(), name='category_add')
+    url(r'^category/add/$', ItemCategoryView.as_view(), name='category_add'),
 
-    url(r'^update/(?P<pk>\d+)/$', UpdateBookView.as_view(), name='update')
+    url(r'^update/(?P<pk>\d+)/$', UpdateBookView.as_view(), name='update'),
     url(r'^item/add/$', ItemCreateView.as_view(), name='item_add'),
 ]
