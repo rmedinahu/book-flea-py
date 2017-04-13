@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from bookstore.views import HomeView
+from bookstore.views import HomeView, ItemCategoryView
 
 urlpatterns = [
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
+    url(r'^category/add/$', ItemCategoryView.as_view(), name='category_add')
 ]
