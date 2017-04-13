@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
-
+# imported so we can utilize named urls in urls.py
+from django.urls import reverse
 
 class Item(models.Model):
     title = models.CharField(max_length=255)
@@ -12,6 +13,9 @@ class Item(models.Model):
     description = models.TextField(max_length=255)
     owner = models.ForeignKey(User, related_name="owned_items")
 
+    def get_absolute_url(self):
+        return reverse('item_view', kwargs={'pk': self.pk})
+        
     def __str__(self):
         return self.title
 

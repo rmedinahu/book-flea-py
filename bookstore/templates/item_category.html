@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content_row %}
+
+  <form action="" method="post">{% csrf_token %}
+      {{ form.as_table }}
+      <input type="submit" class="btn btn-success" value="Add it!" />
+  </form>
+<head>
+<style>
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.show {display:block;}
+</style>
+</head>
+<body>
+<div class="category">
+<button onclick="myFunction()" class="dropbtn">category</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#Math">Math</a>
+    <a href="#Science">Science</a>
+    <a href="#History">History</a>
+    <a href="#English">English</a>
+  </div>
+</div>
+
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+{% endblock content_row %}
