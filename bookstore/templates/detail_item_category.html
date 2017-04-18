@@ -1,0 +1,16 @@
+<!-- detail_item_category.html -->
+
+{% extends "base.html" %}
+
+{% block header_row %}
+	<div class="col-md-12"><h3>Detail View for ItemCategory</h3></div>
+{% endblock header_row %}
+
+{% block content_row %}
+<div class="col-md-12">
+	<ul class="list-unstyled">
+	<li>item: {{ object.item }}</li>
+	<li>category: {{ object.category }}</li>
+	</ul>
+</div>
+{% endblock content_row %}
