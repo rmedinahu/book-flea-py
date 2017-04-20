@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content_row %}
-
   <form action="" method="post">{% csrf_token %}
       {{ form.as_table }}
       <input type="submit" class="btn btn-success" value="Add it!" />
@@ -27,13 +26,7 @@
 </head>
 <body>
 <div class="category">
-<button onclick="myFunction()" class="dropbtn">category</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#Math">Math</a>
-    <a href="#Science">Science</a>
-    <a href="#History">History</a>
-    <a href="#English">English</a>
-  </div>
+<button onclick="myFunction()" class="dropbtn">category</butto>
 </div>
 
 <script>
@@ -54,6 +47,5 @@ window.onclick = function(event) {
   }
 }
 </script>
-
 </body>
 {% endblock content_row %}
