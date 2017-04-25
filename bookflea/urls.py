@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from bookstore.views import HomeView, UpdateBookView, ItemCreateView, ItemCategoryView, ItemDetail, DetailItemCategoryView
+from bookstore.views import HomeView, UpdateBookView, ItemCreateView, ItemCategoryView, ItemDetail, UpdateItemCategoryView, DetailItemCategoryView
 
 
 urlpatterns = [
@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^update/(?P<pk>\d+)/$', UpdateBookView.as_view(), name='update'),
     url(r'^item/add/$', ItemCreateView.as_view(), name='item_add'),
     url(r'^itemcategory/(?P<pk>\d+)/$', DetailItemCategoryView.as_view(), name='itemcategory_detail'),
+    url(r'^update/category/(?P<pk>\d+)/$', UpdateItemCategoryView.as_view(), name='update_category'),
 
 ]
