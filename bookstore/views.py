@@ -37,4 +37,6 @@ class ItemCreateView(CreateView):
     template_name = 'item_create.html'
     fields = ['title', 'category', 'price', 'description', 'owner']
 
-
+class CategoryDetailView(DetailView):
+    model= Category
+    template_name='category_view.html'
