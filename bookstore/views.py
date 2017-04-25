@@ -46,3 +46,7 @@ class DetailItemCategoryView(DetailView):
     model = ItemCategory
     template_name = 'detail_item_category.html'
     fields = ['item', 'category']
+    
+class CategoryDetailView(DetailView):
+    model= Category
+    template_name='category_view.html'
