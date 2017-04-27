@@ -37,9 +37,11 @@ class ItemRequest(models.Model):
     request_date = models.DateTimeField(auto_now_add=True)
     request_complete = models.BooleanField(default=False)
 
+    def get_absolute_url(self):
+        return reverse('update_item_request', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.item
+        return self.item.title
 
 
 class ItemCategory(models.Model):
