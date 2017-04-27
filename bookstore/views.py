@@ -55,3 +55,8 @@ class CreateItemCategoryView(CreateView):
     model = ItemCategory
     template_name = 'createitem_category.html'
     fields = ['item', 'category']
+
+class UpdateCategoryView(UpdateView):
+    model = Category
+    template_name = 'actually_update_category.html'
+    fields = ['name', 'description']

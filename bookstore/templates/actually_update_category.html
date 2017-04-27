@@ -1,9 +1,9 @@
-<!-- update_category.html -->
+<!-- actually_update_category.html -->
 {% extends "base.html" %}
 
 {% block header_row %} 
 <div class="col-md-12">
-    <h2>You may update your ITEM category here.</h2>
+    <h2>Update Category here.</h2>
 </div>
 {% endblock header_row %}
 
@@ -11,7 +11,7 @@
 <div class="col-md-12">
 	<form action="" method="post">{% csrf_token %}
 	    {{ form }}
-	    <input type="submit" class="btn btn-success" value="Update!" />
+	    <input type="submit" class="btn btn-success" value="Update" />
 	</form>
 </div>
 {% endblock content_row %} 
