@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # imported so we can utilize named urls in urls.py
 from django.urls import reverse
 
-class Item(models.Model):
+class Item(models.Model):#Done
     title = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
     price = models.FloatField()
@@ -15,12 +15,12 @@ class Item(models.Model):
 
     def get_absolute_url(self):
         return reverse('item_view', kwargs={'pk': self.pk})
-        
+
     def __str__(self):
         return self.title
 
 
-class Category(models.Model):
+class Category(models.Model):#Done
     name = models.CharField(max_length=255)
     description = models.TextField()
 
@@ -39,13 +39,9 @@ class ItemRequest(models.Model):
 
 
     def __str__(self):
-        return self.item
+        return self.item.title
 
 
-class ItemCategory(models.Model):
+class ItemCategory(models.Model):#Done
     item = models.ForeignKey(Item, related_name="catetories")
     category = models.ForeignKey(Category, related_name="categorized_items")
-
-
- 
-
