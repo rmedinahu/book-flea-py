@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django import forms
 from django.shortcuts import render
 
-from django.views.generic import TemplateView, DetailView, ListView, CreateView, UpdateView
+from django.views.generic import TemplateView, DetailView, ListView, CreateView, UpdateView, FormView
 
 
 from .models import Item, Category, ItemCategory, ItemRequest
@@ -16,13 +17,13 @@ class HomeView(TemplateView):
     template_name='home.html'
 
 class ItemDetail(DetailView):
-	model=Item
-	template_name='item_detail.html'
+    model=Item
+    template_name='item_detail.html'
 
 class ItemCategoryView(CreateView):
-	model = Category
-	template_name = 'item_category.html'
-	fields = ['name','description']
+    model = Category
+    template_name = 'item_category.html'
+    fields = ['name','description']
 
 class UpdateItemCategoryView(UpdateView):
     model = Category
@@ -56,7 +57,20 @@ class CreateItemCategoryView(CreateView):
     template_name = 'createitem_category.html'
     fields = ['item', 'category']
 
-class ItemRequestView(CreateView):
+class CreateItemRequestView(CreateView):
     model = ItemRequest
     template_name = 'itemrequestview.html'
     fields = ['item', 'requestor', 'request_complete']
+
+class SearchForm(forms.Form):
+    search = forms.CharField()
+    
+class SearchSystem(FormView):
+    template_name = 'searchsystem.html'
+    form_class = SearchForm
+
+    def form_valid(self, form):
+        context = self.get_context_data()
+        books = form.cleaned_data['search']
+        context['results'] = Item.objects.filter(title__contains=books)
+        return render(self.request, self.template_name, context)
