@@ -1,13 +1,22 @@
 {% extends "base.html"%}
-{% block content_row %}
 
-<div class="col-md-12">
+{% block header_row %} 
+	<div class="col-md-12">
+    	<h3>
+    	{{ object.title }} 
+    	<a href="{% url 'update' object.pk %}" class="btn btn-sm btn-outline-primary"><i class="fa fa-wrench"></i></a>
+    	</h3>
+    </div>
+{% endblock header_row %}
+
+{% block content_row %}
+<div class="col-md-4">
 	<ul class="list-unstyled">
-	<li>title: {{ object.title }}</li>
-	<li>category: {{ object.category }}</li>
-	<li>price: {{ object.price }}</li>
-	<li>description: {{ object.description }}</li>
-	<li>owner: {{ object.owner }}</li>
+	<li>Title: {{ object.title }}</li>
+	<li>Category: {{ object.category }}</li>
+	<li>Price: ${{ object.price }}</li>
+	<li>Description: {{ object.description }}</li>
+	<li>Owner: {{ object.owner }}</li>
 	</ul>
 </div>
 {% endblock content_row %} 

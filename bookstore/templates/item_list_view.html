@@ -1,0 +1,46 @@
+<!-- item_list_view.html -->
+{% extends "base.html"%}
+{% block content_row %}
+<div class="container">
+	<h2>Browse the Catalog</h2>
+
+	  <select onchange="window.location.href=this.value">
+	   <option>Sort By..</option>
+	    <optgroup label="Sort By Title">
+	      <option value="http://127.0.0.1:8000/catalog/?sortby=title_asc">0-9 / A-Z</option>
+	      <option value="http://127.0.0.1:8000/catalog/?sortby=title_desc">Z-A / 9-0</option>
+	    </optgroup>
+	    <optgroup label="Sort By Category">
+	      <option value="http://127.0.0.1:8000/catalog/?sortby=category_asc">A - Z</option>
+	      <option value="http://127.0.0.1:8000/catalog/?sortby=category_desc">Z - A</option>
+	    </optgroup>
+	    <optgroup label="Sort By Price">
+	   	  <option value="http://127.0.0.1:8000/catalog/?sortby=price_low">Low to High</option>
+	      <option value="http://127.0.0.1:8000/catalog/?sortby=price_high">High to Low</option>
+	    </optgroup>
+	    <optgroup label="Sort By Owner">
+	    	<option value="http://127.0.0.1:8000/catalog/?sortby=owner_asc">Ascending</option>
+	    	<option value="http://127.0.0.1:8000/catalog/?sortby=owner_desc">Descending</option>
+	    </optgroup>
+	   
+	   <option value="http://127.0.0.1:8000/catalog/">Clear Sort</option>
+	  </select>
+
+	<div class='items'>
+		{% for item in object_list %}
+			<div class='item_block'>
+				<ul><b>{{ item.title }}</b>
+				<a href="{% url 'item_detail' item.pk %}" data-trigger="hover" data-placement="top" class="btn btn-link" data-content="View"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+				<a href="{% url 'update' item.pk %}" data-trigger="hover" data-placement="top" class="btn btn-link" data-content="Edit"><i class="fa fa-wrench" aria-hidden="true"></i></i></a>
+				<ul>Category: {{ item.category }}</ul>
+				<ul>Price: ${{ item.price }}</ul>
+				<ul>Owner: {{ item.owner }}</ul>
+				<ul>Description: <ul>{{ item.description }}</ul> </ul>
+				</ul>
+			</div>
+		{% endfor %}
+	</div> <!-- Close items div -->
+</div>  <!-- Close container div-->
+
+
+{% endblock content_row %} 

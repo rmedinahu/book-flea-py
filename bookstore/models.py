@@ -14,7 +14,7 @@ class Item(models.Model):#Done
     owner = models.ForeignKey(User, related_name="owned_items")
 
     def get_absolute_url(self):
-        return reverse('item_view', kwargs={'pk': self.pk})
+        return reverse('item_detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.title
